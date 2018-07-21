@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Raskulls.Variables;
 
 public class MoveForward : MonoBehaviour
 {
@@ -8,32 +9,17 @@ public class MoveForward : MonoBehaviour
     private KeyCode keyMove, keyJump;
 
     [SerializeField]
-    private float speed, jumpSpeed;
+    private FloatReference speed, jumpSpeed;
 
     [SerializeField]
-    private Transform otherSide;
+    private Vector3Variable myPosition, otherPosition, dirForward;
 
     [SerializeField]
-    private float angle;
+    private FloatReference angle;
 
     private Rigidbody rb;
 
-    private Vector3 dirForward;
-
     private bool isMoving, isGrounded;
-
-    public Vector3 DirForward
-    {
-        get
-        {
-            return dirForward;
-        }
-
-        set
-        {
-            dirForward = value;
-        }
-    }
 
     private void Start()
     {
@@ -68,19 +54,20 @@ public class MoveForward : MonoBehaviour
 
     private void FixedUpdate()
     {
-        DirForward = (otherSide.position - transform.position).normalized;
-        DirForward = Quaternion.AngleAxis(angle, Vector3.up) * DirForward;
+        myPosition.Value = transform.position;
+        dirForward.Value = (otherPosition.Value - transform.position).normalized;
+        dirForward.Value = Quaternion.AngleAxis(angle, Vector3.up) * dirForward.Value;
 
         if (isMoving && isGrounded)
         {
-            rb.AddForce(DirForward * speed);
+            rb.AddForce(dirForward.Value * speed.Value);
         }
     }
 
     private IEnumerator Jump()
     {
         yield return new WaitForFixedUpdate();
-        rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * jumpSpeed.Value, ForceMode.Impulse);
         isGrounded = false;
     }
 
