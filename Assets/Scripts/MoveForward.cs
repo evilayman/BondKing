@@ -18,10 +18,22 @@ public class MoveForward : MonoBehaviour
 
     private Rigidbody rb;
 
-    [SerializeField]
-    private bool isMoving;
+    private Vector3 dirForward;
 
-    private bool isGrounded;
+    private bool isMoving, isGrounded;
+
+    public Vector3 DirForward
+    {
+        get
+        {
+            return dirForward;
+        }
+
+        set
+        {
+            dirForward = value;
+        }
+    }
 
     private void Start()
     {
@@ -56,11 +68,12 @@ public class MoveForward : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isMoving)
+        DirForward = (otherSide.position - transform.position).normalized;
+        DirForward = Quaternion.AngleAxis(angle, Vector3.up) * DirForward;
+
+        if (isMoving && isGrounded)
         {
-            Vector3 dir = (otherSide.position - transform.position).normalized;
-            dir = Quaternion.AngleAxis(angle, Vector3.up) * dir;
-            rb.AddForce(dir * speed);
+            rb.AddForce(DirForward * speed);
         }
     }
 

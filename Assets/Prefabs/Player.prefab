@@ -320,7 +320,7 @@ Transform:
   m_GameObject: {fileID: 1982694348440936}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25000012, y: 0.25, z: 5}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 5}
   m_Children: []
   m_Father: {fileID: 4670964813563646}
   m_RootOrder: 0
@@ -822,7 +822,7 @@ Rigidbody:
   m_GameObject: {fileID: 1717795178372664}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -837,7 +837,7 @@ Rigidbody:
   m_GameObject: {fileID: 1192379637587380}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -941,11 +941,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyMove: 100
   keyJump: 101
-  speed: 20
+  speed: 50
   jumpSpeed: 10
   otherSide: {fileID: 4322847302218338}
   angle: 90
-  isMoving: 0
 --- !u!114 &114435085500314690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -959,11 +958,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyMove: 97
   keyJump: 113
-  speed: 20
+  speed: 50
   jumpSpeed: 10
   otherSide: {fileID: 4714991373539394}
   angle: -90
-  isMoving: 0
 --- !u!135 &135453608622051122
 SphereCollider:
   m_ObjectHideFlags: 1
