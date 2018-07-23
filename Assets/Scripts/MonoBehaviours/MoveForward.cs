@@ -21,6 +21,19 @@ public class MoveForward : MonoBehaviour
 
     private bool isMoving, isGrounded;
 
+    public bool IsMoving
+    {
+        get
+        {
+            return isMoving;
+        }
+
+        set
+        {
+            isMoving = value;
+        }
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,12 +51,12 @@ public class MoveForward : MonoBehaviour
     {
         if (Input.GetKeyDown(keyMove))
         {
-            isMoving = true;
+            IsMoving = true;
         }
 
         if (Input.GetKeyUp(keyMove))
         {
-            isMoving = false;
+            IsMoving = false;
         }
 
         if (Input.GetKeyDown(keyJump) && isGrounded)
@@ -58,7 +71,7 @@ public class MoveForward : MonoBehaviour
         dirForward.Value = (otherPosition.Value - transform.position).normalized;
         dirForward.Value = Quaternion.AngleAxis(angle, Vector3.up) * dirForward.Value;
 
-        if (isMoving && isGrounded)
+        if (IsMoving && isGrounded)
         {
             rb.AddForce(dirForward.Value * speed.Value);
         }
@@ -69,10 +82,5 @@ public class MoveForward : MonoBehaviour
         yield return new WaitForFixedUpdate();
         rb.AddForce(Vector3.up * jumpSpeed.Value, ForceMode.Impulse);
         isGrounded = false;
-    }
-
-    public void SwitchState()
-    {
-        isMoving = !isMoving;
     }
 }

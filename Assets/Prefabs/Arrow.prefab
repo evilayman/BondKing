@@ -309,8 +309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be2584afc267d2f43998ed42fef4e006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 11400000, guid: f1c8aef58b17f204494479ac195452ab, type: 2}
+  targetPosition: {fileID: 0}
   arrowDistance:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 0fd4418a981695b45a63ac26ca802610, type: 2}
+  dirForward: {fileID: 0}
