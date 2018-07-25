@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 114258328159586456}
   - component: {fileID: 114268010675701892}
   - component: {fileID: 114675887898939646}
+  - component: {fileID: 114799556699457482}
   - component: {fileID: 96188188345116882}
   m_Layer: 0
   m_Name: Right
@@ -148,6 +149,7 @@ GameObject:
   - component: {fileID: 114435085500314690}
   - component: {fileID: 114556356287020052}
   - component: {fileID: 114785824842319584}
+  - component: {fileID: 114491843799541108}
   - component: {fileID: 96761041458244256}
   m_Layer: 0
   m_Name: Left
@@ -1218,6 +1220,34 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: -90
     Variable: {fileID: 0}
+--- !u!114 &114491843799541108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1717795178372664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4077ba56d86bba845be65d8b826bdf9e, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114435085500314690}
+        m_MethodName: StartJump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114556356287020052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1292,6 +1322,34 @@ MonoBehaviour:
       - m_Target: {fileID: 114435085500314690}
         m_MethodName: set_IsMoving
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114799556699457482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192379637587380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 7c502fdcc6ff8224bac2f009d0791a5d, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114258328159586456}
+        m_MethodName: StartJump
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

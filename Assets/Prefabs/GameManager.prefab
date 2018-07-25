@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1353656639123454}
+  m_IsPrefabParent: 1
+--- !u!1 &1353656639123454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4302276188501968}
+  - component: {fileID: 114760111560413490}
+  - component: {fileID: 114230429787802204}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4302276188501968
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1353656639123454}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114230429787802204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1353656639123454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fb4d1a190d051439c2853a21c09e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114760111560413490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1353656639123454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705c814b1263a974f9af92da37d3c098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpButtonThreshold: 0.1
+  startTouchLeft: {fileID: 11400000, guid: b35411eb083bcf04c973cbe14d7bdf87, type: 2}
+  stoppedTouchLeft: {fileID: 11400000, guid: b24cec78e56aede49bf087e41c4bc488, type: 2}
+  startTouchRight: {fileID: 11400000, guid: 5b7c94fcd96df1a439460df1d95bd3f3, type: 2}
+  stoppedTouchRight: {fileID: 11400000, guid: 0fdc4f521a7dcd444a3f36eb3fcceb2a, type: 2}
+  jumpedLeft: {fileID: 11400000, guid: 4077ba56d86bba845be65d8b826bdf9e, type: 2}
+  jumpedRight: {fileID: 11400000, guid: 7c502fdcc6ff8224bac2f009d0791a5d, type: 2}

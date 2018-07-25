@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: Float - JumpSpeed
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: 20
+  Value: 10

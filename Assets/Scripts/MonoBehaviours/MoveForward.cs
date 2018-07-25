@@ -59,9 +59,9 @@ public class MoveForward : MonoBehaviour
             IsMoving = false;
         }
 
-        if (Input.GetKeyDown(keyJump) && isGrounded)
+        if (Input.GetKeyDown(keyJump))
         {
-            StartCoroutine(Jump());
+            StartJump();
         }
     }
 
@@ -75,6 +75,12 @@ public class MoveForward : MonoBehaviour
         {
             rb.AddForce(dirForward.Value * speed.Value);
         }
+    }
+
+    public void StartJump()
+    {
+        if (isGrounded)
+            StartCoroutine(Jump());
     }
 
     private IEnumerator Jump()

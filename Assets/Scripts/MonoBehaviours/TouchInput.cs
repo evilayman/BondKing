@@ -7,35 +7,57 @@ using Raskulls.Events;
 public class TouchInput : MonoBehaviour
 {
     [SerializeField]
-    private GameEvent startTouchLeft, stoppedTouchLeft, startTouchRight, stoppedTouchRight;
+    private float jumpButtonThreshold;
+    [SerializeField]
+    private GameEvent startTouchLeft, stoppedTouchLeft, startTouchRight, stoppedTouchRight, jumpedLeft, jumpedRight;
 
     private float screenHalf;
 
     private int[] touchesPositions;
+    private float[] touchesTime;
 
     private void Start()
     {
         touchesPositions = new int[2];
+        touchesTime = new float[2];
+
         screenHalf = Screen.width / 2;
     }
 
     private void Update()
     {
+        CheckTouch();
+    }
+
+    private void CheckTouch()
+    {
         Touch[] myTouches = Input.touches;
         for (int i = 0; i < myTouches.Length; i++)
         {
-            //Take input from 2 touch fingers only
             if (i < 2)
             {
                 if (myTouches[i].phase == TouchPhase.Began)
                 {
                     touchesPositions[i] = GetTouchSide(myTouches[i].position);
+                    touchesTime[i] = Time.time;
                     CheckTouchPositions(myTouches.Length);
                 }
                 else if (myTouches[i].phase == TouchPhase.Ended)
                 {
+                    float timeOfTouch = Time.time - touchesTime[i];
+
+                    if (timeOfTouch <= jumpButtonThreshold)
+                    {
+                        if (touchesPositions[i] == 1)
+                            jumpedRight.Raise();
+                        else
+                            jumpedLeft.Raise();
+                    }
+
+                    touchesTime[i] = 0;
                     touchesPositions[i] = 0;
                     CheckTouchPositions(myTouches.Length);
+
                 }
             }
             else
