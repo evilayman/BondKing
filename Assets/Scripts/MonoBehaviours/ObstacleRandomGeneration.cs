@@ -57,24 +57,24 @@ public class ObstacleRandomGeneration : MonoBehaviour
             switch (dir)
             {
                 case Direction.Up:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(0, 0, 40), Quaternion.identity);
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(0, 1, 40), Quaternion.identity);
                     StartCoroutine(MoveObstacle(instantiatedObstacle, new Vector3(0, 0, goTo)));
                     //instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -followPlayerSpeed));
 
                     break;
                 case Direction.Down:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(0, 0, -40), Quaternion.identity);
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(0, 1, -40), Quaternion.identity);
                     StartCoroutine(MoveObstacle(instantiatedObstacle, new Vector3(0, 0, -goTo)));
                     //instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, followPlayerSpeed));
                     break;
                 case Direction.Left:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(-40, 0, 0), Quaternion.identity);
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(-40, 1, 0), Quaternion.identity);
                     instantiatedObstacle.transform.Rotate(new Vector3(0, 90, 0));
                     StartCoroutine(MoveObstacle(instantiatedObstacle, new Vector3(-goTo, 0, 0)));
                     //instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(followPlayerSpeed, 0, 0));
                     break;
                 case Direction.Right:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(40, 0, 0), Quaternion.identity);
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(40, 1, 0), Quaternion.identity);
                     instantiatedObstacle.transform.Rotate(new Vector3(0, 90, 0));
                     StartCoroutine(MoveObstacle(instantiatedObstacle, new Vector3(goTo, 0, 0)));
                     //instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(-followPlayerSpeed, 0, 0));
