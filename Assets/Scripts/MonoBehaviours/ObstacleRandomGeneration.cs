@@ -15,7 +15,7 @@ public class ObstacleRandomGeneration : MonoBehaviour
     private GameObject player;
     private GameObject instantiatedObstacle;
     [SerializeField]
-    private float SpawnTime, destroyTime, followPlayerSpeed,goTo,step;
+    private float SpawnTime, destroyTime, chaoticForce, organizedForce/*,step*/;
     private int objectToSpawn, randRes;
     [SerializeField]
     private bool chaoticRandomGenerationMode;
@@ -46,7 +46,7 @@ public class ObstacleRandomGeneration : MonoBehaviour
             objectToSpawn = Random.Range(0, chaoticObstacles.Count);
             instantiatedObstacle = Instantiate(chaoticObstacles[objectToSpawn], spawnLocation, Quaternion.identity);
             ObstacleDir = player.transform.position - instantiatedObstacle.transform.position;
-            instantiatedObstacle.GetComponent<Rigidbody>().AddForce(ObstacleDir * followPlayerSpeed);
+            instantiatedObstacle.GetComponent<Rigidbody>().AddForce(ObstacleDir * chaoticForce, ForceMode.Acceleration);
             //instantiatedObstacle.GetComponent<Rigidbody>().MovePosition(player.transform.position*2);
             Destroy(instantiatedObstacle, destroyTime);
         }
@@ -57,27 +57,31 @@ public class ObstacleRandomGeneration : MonoBehaviour
             switch (dir)
             {
                 case Direction.Up:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(0, 1, 40), Quaternion.identity);
-                    StartCoroutine(MoveObstacle(instantiatedObstacle, new Vector3(0, 0, goTo)));
-                    //instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -followPlayerSpeed));
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(0, 0, 40), Quaternion.identity);
+                    //StartCoroutine(MoveObstacle(instantiatedObstacle, new Vector3(0, 0, goTo)));
+                    //instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -goToOrganized));
+                    instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -organizedForce),ForceMode.Acceleration);
 
                     break;
                 case Direction.Down:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(0, 1, -40), Quaternion.identity);
-                    StartCoroutine(MoveObstacle(instantiatedObstacle, new Vector3(0, 0, -goTo)));
-                    //instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, followPlayerSpeed));
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(0, 0, -40), Quaternion.identity);
+                    //StartCoroutine(MoveObstacle(instantiatedObstacle, new Vector3(0, 0, -goTo)));
+                    //instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, goToOrganized));
+                    instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, organizedForce),ForceMode.Acceleration);
                     break;
                 case Direction.Left:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(-40, 1, 0), Quaternion.identity);
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(-40, 0, 0), Quaternion.identity);
                     instantiatedObstacle.transform.Rotate(new Vector3(0, 90, 0));
-                    StartCoroutine(MoveObstacle(instantiatedObstacle, new Vector3(-goTo, 0, 0)));
-                    //instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(followPlayerSpeed, 0, 0));
+                    //StartCoroutine(MoveObstacle(instantiatedObstacle, new Vector3(-goTo, 0, 0)));
+                    //instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(goToOrganized, 0, 0));
+                    instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(organizedForce, 0, 0),ForceMode.Acceleration);
                     break;
                 case Direction.Right:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(40, 1, 0), Quaternion.identity);
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(40, 0, 0), Quaternion.identity);
                     instantiatedObstacle.transform.Rotate(new Vector3(0, 90, 0));
-                    StartCoroutine(MoveObstacle(instantiatedObstacle, new Vector3(goTo, 0, 0)));
-                    //instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(-followPlayerSpeed, 0, 0));
+                    //StartCoroutine(MoveObstacle(instantiatedObstacle, new Vector3(goTo, 0, 0)));
+                    //instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(-goToOrganized, 0, 0));
+                    instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(-organizedForce, 0, 0),ForceMode.Acceleration);
                     break;
                 default:
                     break;
@@ -87,31 +91,30 @@ public class ObstacleRandomGeneration : MonoBehaviour
 
     }
 
-    IEnumerator MoveObstacle(GameObject obstacle, Vector3 dir)
-    {
-        float timeToStart = Time.time;
-        Vector3 moveStep = dir.normalized;
-        while (obstacle)
-        {
-            obstacle.GetComponent<Rigidbody>().MovePosition(dir -  moveStep);
-            if (moveStep.x > 0)
-            {
-                moveStep.x+= step;
-            }
-            else if (moveStep.x < 0)
-            {
-                moveStep.x-=step;
-            }
-            if (moveStep.z > 0)
-            {
-                moveStep.z+= step;
-            }
-            else if (moveStep.z < 0)
-            {
-                moveStep.z-= step;
-            }
+    //IEnumerator MoveObstacle(GameObject obstacle, Vector3 dir)
+    //{
+    //    Vector3 moveStep = dir.normalized;
+    //    while (obstacle)
+    //    {
+    //        obstacle.GetComponent<Rigidbody>().MovePosition(dir -  moveStep);
+    //        if (moveStep.x > 0)
+    //        {
+    //            moveStep.x+= step;
+    //        }
+    //        else if (moveStep.x < 0)
+    //        {
+    //            moveStep.x-=step;
+    //        }
+    //        if (moveStep.z > 0)
+    //        {
+    //            moveStep.z+= step;
+    //        }
+    //        else if (moveStep.z < 0)
+    //        {
+    //            moveStep.z-= step;
+    //        }
 
-            yield return null;// new WaitForSeconds(0.1f);
-        }
-    }
+    //        yield return null;// new WaitForSeconds(0.1f);
+    //    }
+    //}
 }

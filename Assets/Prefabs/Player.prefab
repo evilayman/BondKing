@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4039174472625436}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33382840090923260}
   - component: {fileID: 23684129209751102}
   - component: {fileID: 65177073874770200}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114675887898939646}
   - component: {fileID: 114799556699457482}
   - component: {fileID: 96188188345116882}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 33040305627496684}
   - component: {fileID: 23338685534240810}
   - component: {fileID: 65358793871927140}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BlueCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4670964813563646}
   - component: {fileID: 54257907661952898}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Connection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 33801713399884498}
   - component: {fileID: 23538648579130320}
   - component: {fileID: 135937373963673656}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RedSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 33283065909026306}
   - component: {fileID: 23439857736502770}
   - component: {fileID: 135453608622051122}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BlueSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 114785824842319584}
   - component: {fileID: 114491843799541108}
   - component: {fileID: 96761041458244256}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 33876128258003136}
   - component: {fileID: 23645591293600726}
   - component: {fileID: 65261961182195400}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 33697805693355006}
   - component: {fileID: 23247452410123984}
   - component: {fileID: 65444323971054786}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 33864202488353270}
   - component: {fileID: 23711118801109474}
   - component: {fileID: 65536908556341316}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RedCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 33031672655527824}
   - component: {fileID: 23651558486860600}
   - component: {fileID: 65384217737353476}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 33930356083473706}
   - component: {fileID: 23999080888646434}
   - component: {fileID: 65326280969654268}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BlackBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1035888222511772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5, y: 0, z: -22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4322847302218338}
