@@ -18,7 +18,7 @@ public class ObstacleRandomGeneration : MonoBehaviour
     private float SpawnTime, destroyTime, chaoticForce, organizedForce/*,step*/;
     private int objectToSpawn, randRes, upObsCnt, downObsCnt, leftObsCnt, rightObsCnt;
     [SerializeField]
-    private bool chaoticRandomGenerationMode;
+    private bool chaoticRandomGenerationMode, normalOneDirectionMode, normalTwoDirectionMode;
     private Direction dir;
     private bool canSpawnUp, canSpawnDown, canSpawnLeft, canSpawnRight, randomFailed;
     private float upDownTime, leftRightTime;
@@ -55,7 +55,7 @@ public class ObstacleRandomGeneration : MonoBehaviour
             instantiatedObstacle.GetComponent<Rigidbody>().AddForce(ObstacleDir * chaoticForce, ForceMode.Acceleration);
             Destroy(instantiatedObstacle, destroyTime);
         }
-        else
+        if (normalOneDirectionMode)
         {
             if (!canSpawnUp)
             {
@@ -100,7 +100,7 @@ public class ObstacleRandomGeneration : MonoBehaviour
                     case Direction.Up:
                         if (canSpawnUp)
                         {
-                            randomFailed=false;
+                            randomFailed = false;
                         }
                         break;
                     case Direction.Down:
@@ -130,7 +130,7 @@ public class ObstacleRandomGeneration : MonoBehaviour
             {
                 case Direction.Up:
 
-                    if ( upObsCnt < 3 && canSpawnUp)
+                    if (upObsCnt < 3 && canSpawnUp)
                     {
                         canSpawnDown = false;
                         upObsCnt++;
@@ -139,7 +139,7 @@ public class ObstacleRandomGeneration : MonoBehaviour
                         upDownTime = Time.time;
                         Destroy(instantiatedObstacle, destroyTime);
                     }
-                   
+
 
                     break;
 
@@ -153,7 +153,7 @@ public class ObstacleRandomGeneration : MonoBehaviour
                         upDownTime = Time.time;
                         Destroy(instantiatedObstacle, destroyTime);
                     }
-                
+
                     break;
 
                 case Direction.Left:
@@ -171,7 +171,7 @@ public class ObstacleRandomGeneration : MonoBehaviour
                     break;
 
                 case Direction.Right:
-                    if ( leftObsCnt < 3 && canSpawnRight)
+                    if (leftObsCnt < 3 && canSpawnRight)
                     {
                         rightObsCnt++;
                         instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(40, 0, 0), Quaternion.identity);
@@ -188,33 +188,37 @@ public class ObstacleRandomGeneration : MonoBehaviour
             }
 
         }
+        if (normalTwoDirectionMode)
+        {
+            objectToSpawn = Random.Range(0, normalObstacles.Count);
+            dir = (Direction)Random.Range(0, 4);
+            switch (dir)
+            {
+                case Direction.Up:
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(0, 0, 40), Quaternion.identity);
+                    instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -organizedForce), ForceMode.Acceleration);
+                    break;
+                case Direction.Down:
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(0, 0, -40), Quaternion.identity);
+                    instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, organizedForce), ForceMode.Acceleration);
+                    break;
+                case Direction.Left:
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(-40, 0, 0), Quaternion.identity);
+                    instantiatedObstacle.transform.Rotate(new Vector3(0, 90, 0));
+                    instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(organizedForce, 0, 0), ForceMode.Acceleration);
+                    break;
+                case Direction.Right:
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(40, 0, 0), Quaternion.identity);
+                    instantiatedObstacle.transform.Rotate(new Vector3(0, 90, 0));
+                    instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(-organizedForce, 0, 0), ForceMode.Acceleration);
+                    break;
+                default:
+                    break;
 
+
+            }
+            Destroy(instantiatedObstacle, destroyTime);
+
+        }
     }
-
-    //IEnumerator MoveObstacle(GameObject obstacle, Vector3 dir)
-    //{
-    //    Vector3 moveStep = dir.normalized;
-    //    while (obstacle)
-    //    {
-    //        obstacle.GetComponent<Rigidbody>().MovePosition(dir -  moveStep);
-    //        if (moveStep.x > 0)
-    //        {
-    //            moveStep.x+= step;
-    //        }
-    //        else if (moveStep.x < 0)
-    //        {
-    //            moveStep.x-=step;
-    //        }
-    //        if (moveStep.z > 0)
-    //        {
-    //            moveStep.z+= step;
-    //        }
-    //        else if (moveStep.z < 0)
-    //        {
-    //            moveStep.z-= step;
-    //        }
-
-    //        yield return null;// new WaitForSeconds(0.1f);
-    //    }
-    //}
 }

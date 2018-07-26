@@ -823,7 +823,9 @@ MonoBehaviour:
   destroyTime: 5
   chaoticForce: 30
   organizedForce: 1000
-  chaoticRandomGenerationMode: 0
+  chaoticRandomGenerationMode: 1
+  normalOneDirectionMode: 0
+  normalTwoDirectionMode: 0
 --- !u!4 &972594880
 Transform:
   m_ObjectHideFlags: 0
