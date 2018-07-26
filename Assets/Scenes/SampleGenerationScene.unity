@@ -821,8 +821,8 @@ MonoBehaviour:
   player: {fileID: 172206354}
   SpawnTime: 1
   destroyTime: 7
-  followPlayerSpeedChaotic: 15000
-  goToOrganized: 1000
+  chaoticForce: 30
+  organizedForce: 1000
   chaoticRandomGenerationMode: 0
 --- !u!4 &972594880
 Transform:
