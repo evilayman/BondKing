@@ -820,7 +820,7 @@ MonoBehaviour:
   - {fileID: 1901462594299324, guid: 052677fc89b4c3046a7c841a7d53a147, type: 2}
   player: {fileID: 172206354}
   SpawnTime: 1
-  destroyTime: 7
+  destroyTime: 5
   chaoticForce: 30
   organizedForce: 1000
   chaoticRandomGenerationMode: 0
