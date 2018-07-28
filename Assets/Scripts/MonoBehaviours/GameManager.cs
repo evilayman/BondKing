@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     private ObstacleRandomGeneration oRG;
     private bool sceneReloadedByObsMode;
-    private void OnEnable()
+    private string obsEnabled;
+    [SerializeField]
+    private Text mode;
+    private void Start()
     {
-        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+        oRG = (ObstacleRandomGeneration)FindObjectOfType(typeof(ObstacleRandomGeneration));
     }
-
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -19,20 +22,50 @@ public class GameManager : MonoBehaviour
     public void ChangeObstacleMode()
     {
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        sceneReloadedByObsMode = true;
-
-
-    }
-
-    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
-    {
-       
-        
-            oRG = (ObstacleRandomGeneration)FindObjectOfType(typeof(ObstacleRandomGeneration));
+        if (obsEnabled == null)
+        {
             oRG.chaoticRandomGenerationMode = true;
-            print(oRG.chaoticRandomGenerationMode);
-        
-       
+            obsEnabled = "cMode";
+            mode.text = "Chaotic";
+        }
+        else if(obsEnabled=="cMode")
+        {
+            oRG.chaoticRandomGenerationMode = false;
+            oRG.normalOneDirectionMode = true;
+            obsEnabled = "oDM";
+            mode.text = "One Direction";
+        }
+        else if (obsEnabled == "oDM")
+        {
+            oRG.normalOneDirectionMode = false;
+            oRG.normalOneDirectionModeV = true;          
+            obsEnabled = "oDMV";
+            mode.text = "One Direction V";
+        }
+        else if (obsEnabled == "oDMV")
+        {            
+            oRG.normalOneDirectionModeV = false;
+            oRG.normalTwoDirectionMode = true;
+            obsEnabled = "tDM";
+            mode.text = "Two Direction";
+        }
+        else if (obsEnabled == "tDM")
+        {
+            oRG.normalTwoDirectionMode = false;
+            oRG.normalTwoDirectionModeV = true;
+            obsEnabled = "tDMV";
+            mode.text = "Two Direction V";
+        }
+        else if (obsEnabled == "tDMV")
+        {
+            oRG.normalTwoDirectionModeV = false;
+            obsEnabled = null;
+            mode.text = "None";
+        }
+
+
+
     }
+
+
 }
