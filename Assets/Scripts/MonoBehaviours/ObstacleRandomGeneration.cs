@@ -341,27 +341,27 @@ public class ObstacleRandomGeneration : MonoBehaviour
                     break;
 
                 case Direction.UpV:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(Random.Range(-40,40), 0, 85), Quaternion.identity);
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(Random.Range(-40,40), 0, 100), Quaternion.identity);
                     instantiatedObstacle.transform.Rotate(new Vector3(0, 90, 0));
                     instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -organizedForce), ForceMode.Acceleration);
                     Destroy(instantiatedObstacle, destroyTime);
                     break;
 
                 case Direction.DownV:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(Random.Range(-40, 40), 0, -85), Quaternion.identity);
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(Random.Range(-40, 40), 0, -100), Quaternion.identity);
                     instantiatedObstacle.transform.Rotate(new Vector3(0, 90, 0));
                     instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, organizedForce), ForceMode.Acceleration);
                     Destroy(instantiatedObstacle, destroyTime);
                     break;
 
                 case Direction.LeftV:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(-85, 0, Random.Range(-40, 40)), Quaternion.identity);
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(-100, 0, Random.Range(-40, 40)), Quaternion.identity);
                     instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(organizedForce, 0, 0), ForceMode.Acceleration);
                     Destroy(instantiatedObstacle, destroyTime);
                     break;
 
                 case Direction.RightV:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(85, 0, Random.Range(-40, 40)), Quaternion.identity);
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(100, 0, Random.Range(-40, 40)), Quaternion.identity);
                     instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(-organizedForce, 0, 0), ForceMode.Acceleration);                 
                     Destroy(instantiatedObstacle, destroyTime);
                     break;
@@ -444,24 +444,24 @@ public class ObstacleRandomGeneration : MonoBehaviour
                     break;
 
                 case Direction.UpV:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(Random.Range(-40, 40), 0, 85), Quaternion.identity);
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(Random.Range(-40, 40), 0, 100), Quaternion.identity);
                     instantiatedObstacle.transform.Rotate(new Vector3(0, 90, 0));
                     instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -organizedForce), ForceMode.Acceleration);
                     break;
 
                 case Direction.DownV:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(Random.Range(-40, 40), 0, -85), Quaternion.identity);
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(Random.Range(-40, 40), 0, -100), Quaternion.identity);
                     instantiatedObstacle.transform.Rotate(new Vector3(0, 90, 0));
                     instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, organizedForce), ForceMode.Acceleration);
                     break;
 
                 case Direction.LeftV:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(-85, 0, Random.Range(-40, 40)), Quaternion.identity);
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(-100, 0, Random.Range(-40, 40)), Quaternion.identity);
                     instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(organizedForce, 0, 0), ForceMode.Acceleration);
                     break;
 
                 case Direction.RightV:
-                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(85, 0, Random.Range(-40, 40)), Quaternion.identity);
+                    instantiatedObstacle = Instantiate(normalObstacles[objectToSpawn], new Vector3(100, 0, Random.Range(-40, 40)), Quaternion.identity);
                     instantiatedObstacle.GetComponent<Rigidbody>().AddForce(new Vector3(-organizedForce, 0, 0), ForceMode.Acceleration);
                     break;
 

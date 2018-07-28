@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1973177725941130}
+  m_IsPrefabParent: 1
+--- !u!1 &1973177725941130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4119746885401012}
+  - component: {fileID: 114527284674907936}
+  m_Layer: 0
+  m_Name: RandomGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4119746885401012
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973177725941130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114527284674907936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973177725941130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f976f3f1066c240b75b2299c2fa53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomLimit: {x: 50, y: 0, z: 40}
+  chaoticObstacles:
+  - {fileID: 1901462594299324, guid: 774d634a64a63804f96cd020fecf21d6, type: 2}
+  - {fileID: 1123787962603444, guid: 1cc42667f4f8c89468ae2795bcc116b5, type: 2}
+  - {fileID: 1542053169469100, guid: fd2bf01fdd4509b4c9f84389c42f148a, type: 2}
+  normalObstacles:
+  - {fileID: 1901462594299324, guid: 052677fc89b4c3046a7c841a7d53a147, type: 2}
+  - {fileID: 1901462594299324, guid: b395f29ac40a0e54f83df32b0e662b80, type: 2}
+  player: {fileID: 0}
+  SpawnTime: 1.5
+  destroyTime: 14
+  chaoticForce: 25
+  organizedForce: 800
+  chaoticRandomGenerationMode: 0
+  normalOneDirectionMode: 0
+  normalTwoDirectionMode: 0
+  normalTwoDirectionModeV: 0
+  normalOneDirectionModeV: 0

@@ -33,28 +33,28 @@ public class GameManager : MonoBehaviour
             oRG.chaoticRandomGenerationMode = false;
             oRG.normalOneDirectionMode = true;
             obsEnabled = "oDM";
-            mode.text = "One Direction";
+            mode.text = "One Dir";
         }
         else if (obsEnabled == "oDM")
         {
             oRG.normalOneDirectionMode = false;
             oRG.normalOneDirectionModeV = true;          
             obsEnabled = "oDMV";
-            mode.text = "One Direction V";
+            mode.text = "One Dir V";
         }
         else if (obsEnabled == "oDMV")
         {            
             oRG.normalOneDirectionModeV = false;
             oRG.normalTwoDirectionMode = true;
             obsEnabled = "tDM";
-            mode.text = "Two Direction";
+            mode.text = "Two Dir";
         }
         else if (obsEnabled == "tDM")
         {
             oRG.normalTwoDirectionMode = false;
             oRG.normalTwoDirectionModeV = true;
             obsEnabled = "tDMV";
-            mode.text = "Two Direction V";
+            mode.text = "Two Dir V";
         }
         else if (obsEnabled == "tDMV")
         {
