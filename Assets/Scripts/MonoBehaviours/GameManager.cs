@@ -6,14 +6,21 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private ObstacleRandomGeneration oRG;
-    private bool sceneReloadedByObsMode;
+    private ChoticObstacles cO;
+    private NormalOneDirObs nODO;
+    private NormalOneDirWithStandingObs nODWSO;
+    private NormalTwoDirObs nTDO;
+    private NormalTwoDirWithStandingObs nTDWSO;
     private string obsEnabled;
     [SerializeField]
     private Text mode;
     private void Start()
     {
-        oRG = (ObstacleRandomGeneration)FindObjectOfType(typeof(ObstacleRandomGeneration));
+        cO = (ChoticObstacles)FindObjectOfType(typeof(ChoticObstacles));
+        nODO = (NormalOneDirObs)FindObjectOfType(typeof(NormalOneDirObs));
+        nODWSO = (NormalOneDirWithStandingObs)FindObjectOfType(typeof(NormalOneDirWithStandingObs));
+        nTDO = (NormalTwoDirObs)FindObjectOfType(typeof(NormalTwoDirObs));
+        nTDWSO = (NormalTwoDirWithStandingObs)FindObjectOfType(typeof(NormalTwoDirWithStandingObs));
     }
     public void ReloadScene()
     {
@@ -24,41 +31,41 @@ public class GameManager : MonoBehaviour
 
         if (obsEnabled == null)
         {
-            oRG.chaoticRandomGenerationMode = true;
+            cO.chaoticRandomGenerationMode = true;
             obsEnabled = "cMode";
             mode.text = "Chaotic";
         }
         else if(obsEnabled=="cMode")
         {
-            oRG.chaoticRandomGenerationMode = false;
-            oRG.normalOneDirectionMode = true;
+            cO.chaoticRandomGenerationMode = false;
+            nODO.normalOneDirectionMode = true;
             obsEnabled = "oDM";
             mode.text = "One Dir";
         }
         else if (obsEnabled == "oDM")
         {
-            oRG.normalOneDirectionMode = false;
-            oRG.normalOneDirectionModeV = true;          
-            obsEnabled = "oDMV";
-            mode.text = "One Dir V";
+            nODO.normalOneDirectionMode = false;
+            nODWSO.normalOneDirectionWithStandingMode = true;          
+            obsEnabled = "oDMWS";
+            mode.text = "One Dir Standing";
         }
-        else if (obsEnabled == "oDMV")
-        {            
-            oRG.normalOneDirectionModeV = false;
-            oRG.normalTwoDirectionMode = true;
+        else if (obsEnabled == "oDMWS")
+        {
+            nODWSO.normalOneDirectionWithStandingMode = false;
+            nTDO.normalTwoDirectionMode = true;
             obsEnabled = "tDM";
             mode.text = "Two Dir";
         }
         else if (obsEnabled == "tDM")
         {
-            oRG.normalTwoDirectionMode = false;
-            oRG.normalTwoDirectionModeV = true;
-            obsEnabled = "tDMV";
-            mode.text = "Two Dir V";
+            nTDO.normalTwoDirectionMode = false;
+            nTDWSO.normalTwoDirectionWithStandingMode = true;
+            obsEnabled = "tDMWS";
+            mode.text = "Two Dir Standing";
         }
-        else if (obsEnabled == "tDMV")
+        else if (obsEnabled == "tDMWS")
         {
-            oRG.normalTwoDirectionModeV = false;
+            nTDWSO.normalTwoDirectionWithStandingMode = false;
             obsEnabled = null;
             mode.text = "None";
         }

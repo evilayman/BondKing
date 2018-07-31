@@ -19,7 +19,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4119746885401012}
-  - component: {fileID: 114527284674907936}
+  - component: {fileID: 114760777472993958}
+  - component: {fileID: 114210437876183152}
+  - component: {fileID: 114999188935032876}
+  - component: {fileID: 114234894233917648}
+  - component: {fileID: 114789508856216926}
   m_Layer: 0
   m_Name: RandomGenerator
   m_TagString: Untagged
@@ -40,7 +44,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114527284674907936
+--- !u!114 &114210437876183152
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,24 +52,91 @@ MonoBehaviour:
   m_GameObject: {fileID: 1973177725941130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07f976f3f1066c240b75b2299c2fa53f, type: 3}
+  m_Script: {fileID: 11500000, guid: 938ec320ff1a0fc4483e67558028440a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalObstacles:
+  - {fileID: 1901462594299324, guid: 052677fc89b4c3046a7c841a7d53a147, type: 2}
+  - {fileID: 1901462594299324, guid: b395f29ac40a0e54f83df32b0e662b80, type: 2}
+  positionFromCenter: 40
+  SpawnTime: 1
+  destroyTime: 4.8
+  organizedForce: 5000000
+  normalOneDirectionMode: 0
+--- !u!114 &114234894233917648
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973177725941130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd19683deb8c714ea8585846214097f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalObstacles:
+  - {fileID: 1901462594299324, guid: 052677fc89b4c3046a7c841a7d53a147, type: 2}
+  positionFromCenter: 40
+  SpawnTime: 2
+  destroyTime: 4.8
+  organizedForce: 5000000
+  normalTwoDirectionMode: 0
+--- !u!114 &114760777472993958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973177725941130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f44ea3b96f89f2438a0d3ada32084fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   randomLimit: {x: 50, y: 0, z: 40}
   chaoticObstacles:
-  - {fileID: 1901462594299324, guid: 774d634a64a63804f96cd020fecf21d6, type: 2}
   - {fileID: 1123787962603444, guid: 1cc42667f4f8c89468ae2795bcc116b5, type: 2}
+  - {fileID: 1901462594299324, guid: 774d634a64a63804f96cd020fecf21d6, type: 2}
   - {fileID: 1542053169469100, guid: fd2bf01fdd4509b4c9f84389c42f148a, type: 2}
+  player: {fileID: 0}
+  SpawnTime: 1
+  destroyTime: 3
+  chaoticForce: 40000
+  chaoticRandomGenerationMode: 0
+--- !u!114 &114789508856216926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973177725941130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e7eeac61b28604098c7cb6f0f7722f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   normalObstacles:
   - {fileID: 1901462594299324, guid: 052677fc89b4c3046a7c841a7d53a147, type: 2}
   - {fileID: 1901462594299324, guid: b395f29ac40a0e54f83df32b0e662b80, type: 2}
-  player: {fileID: 0}
-  SpawnTime: 1.5
-  destroyTime: 14
-  chaoticForce: 25
-  organizedForce: 800
-  chaoticRandomGenerationMode: 0
-  normalOneDirectionMode: 0
-  normalTwoDirectionMode: 0
-  normalTwoDirectionModeV: 0
-  normalOneDirectionModeV: 0
+  positionFromCenter: 40
+  SpawnTime: 2
+  destroyTime: 9.8
+  organizedForce: 5000000
+  normalTwoDirectionWithStandingMode: 0
+--- !u!114 &114999188935032876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973177725941130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5241c74b45ea9a140ba8e3c2ac3fcbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalObstacles:
+  - {fileID: 1901462594299324, guid: 052677fc89b4c3046a7c841a7d53a147, type: 2}
+  - {fileID: 1901462594299324, guid: b395f29ac40a0e54f83df32b0e662b80, type: 2}
+  positionFromCenter: 40
+  SpawnTime: 1
+  destroyTime: 9.8
+  organizedForce: 5000000
+  normalOneDirectionWithStandingMode: 0
